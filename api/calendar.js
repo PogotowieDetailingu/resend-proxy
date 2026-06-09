@@ -170,7 +170,7 @@ export default async function handler(req, res) {
     const calData = await calRes.json()
     if (!calRes.ok) return res.status(calRes.status).json({ error: calData })
 
-    return res.status(200).json({ success: true, eventId: calData.id, link: calData.htmlLink })
+    return res.status(200).json({ success: true, eventId: calData.id, eventLink: calData.htmlLink })
   } catch (err) {
     return res.status(500).json({ error: String(err) })
   }
