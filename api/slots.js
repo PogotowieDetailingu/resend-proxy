@@ -42,6 +42,7 @@ export default async function handler(req, res) {
         client_email: body.email,
         client_phone: body.phone,
         client_address: body.address,
+        client_car: body.car || "",
         services: body.services,
         total: body.total,
         notes: body.notes || "",
