@@ -115,19 +115,21 @@ export default async function handler(req, res) {
   if (req.method !== 'POST')   return res.status(405).json({ error: 'Method not allowed' })
 
   try {
-    const { name, email, phone, address, date, time, services, total } = req.body
+    const { name, email, phone, address, car, date, time, services, total } = req.body
 
     if (!date || !time) return res.status(400).json({ error: 'Brak daty lub godziny' })
 
     const accessToken = await getAccessToken()
 
     const event = {
-      summary: `🚗 Detailing — ${name}`,
+      summary: `🚗 Detailing — ${name}${car ? ` (${car})` : ''}`,
+      // car model in summary for quick calendar view
       location: address,
       description: [
         `Klient: ${name}`,
         `Telefon: ${phone}`,
         `Email: ${email}`,
+        `Auto: ${car || "—"}`,
         `Adres: ${address}`,
         ``,
         `Usługi:`,
