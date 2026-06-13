@@ -3,6 +3,7 @@
 
 const SUPABASE_URL = "https://ghbfgqbzqeelrnqexfeu.supabase.co"
 const SUPABASE_KEY = "sb_publishable_3KOGtuQ1882QfsBGgwbHPg_Es2MF7bs"
+const SERVICE_ROLE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdoYmZncWJ6cWVlbHJucWV4ZmV1Iiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc4MDk0ODM0NSwiZXhwIjoyMDk2NTI0MzQ1fQ.qahwUO8mnqB01ayYNA2v45eKu7EosJVTw8sha5laiZA"
 const ADMIN_PIN    = process.env.ADMIN_PIN || ""
 
 export const config = { api: { bodyParser: false } }
@@ -71,7 +72,7 @@ export default async function handler(req, res) {
       {
         method: "POST",
         headers: {
-          "Authorization": `Bearer ${SUPABASE_KEY}`,
+          "Authorization": `Bearer ${SERVICE_ROLE_KEY}`,
           "Content-Type": mimeType,
         },
         body: fileBuffer,
