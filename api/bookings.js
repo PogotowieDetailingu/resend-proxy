@@ -1,7 +1,7 @@
 // api/bookings.js — zwraca listę rezerwacji dla panelu admina
 const SUPABASE_URL = "https://ghbfgqbzqeelrnqexfeu.supabase.co"
 const SUPABASE_KEY = "sb_publishable_3KOGtuQ1882QfsBGgwbHPg_Es2MF7bs"
-const ADMIN_PIN    = "2113" // ← zmień na swój PIN
+const ADMIN_PIN    = process.env.ADMIN_PIN || "" // PIN ustawiony w Vercel Environment Variables
 
 const HEADERS = {
   "Content-Type": "application/json",
